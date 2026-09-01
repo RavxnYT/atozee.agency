@@ -40,7 +40,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=3.0.0">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=3.1.0">
 </head>
 <body class="admin-body">
 <?php if (!$loggedIn): ?>
