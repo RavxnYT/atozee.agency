@@ -31,14 +31,14 @@ Edits are stored on the server in `data/content.json` and show on the live site 
 
 ## Deploy on Namecheap cPanel (Git)
 
-1. In cPanel, open **Git Version Control** and pull this repository into `public_html` (or the domain document root).
-2. Make sure PHP is enabled (Namecheap shared hosting has this by default).
-3. Set write permission on these folders so the admin can save content and images:
-   - `data/` → `755` or `775`
-   - `uploads/agencies/` → `755` or `775`
-4. Visit `https://atozee.agency/` and `https://atozee.agency/admin/`.
+cPanel clones GitHub into `/home/atozkptt/repositories/atozee.agency`. That folder is not the live website. `.cpanel.yml` copies the site into `public_html`.
 
-Git pull updates the code. It does **not** overwrite live listings, because `data/content.json` and uploaded images are not in Git after first run. The first visit copies starter content from `data/content.seed.json`.
+1. Clone the GitHub repo in **Git Version Control** and check out branch `main`. If **Update from Remote** shows `"" is not a valid "branch"`, no branch is checked out — remove the cPanel repository entry and clone again, choosing `main`.
+2. Click **Update from Remote**.
+3. Click **Deploy HEAD Commit** to copy files into `/home/atozkptt/public_html`.
+4. In File Manager, set `public_html/data/` and `public_html/uploads/agencies/` to `755` or `775`.
+
+Live listings stay on the server. Deploy does not overwrite `data/content.json`, `data/settings.json`, or uploaded images. The first visit copies starter content from `data/content.seed.json`.
 
 ## Local preview
 
