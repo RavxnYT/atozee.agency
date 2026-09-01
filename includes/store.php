@@ -73,9 +73,20 @@ function atozee_content(): array
     usort($content['categories'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
     usort($content['agencies'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
 
-    if (atozee_repair_agency_images($content) || atozee_merge_seed_agencies($content)) {
+    if (
+        atozee_repair_agency_images($content)
+        || atozee_merge_seed_agencies($content)
+        || atozee_merge_seed_products($content)
+    ) {
         atozee_save_content($content);
     }
+
+    foreach ($content['agencies'] as &$agency) {
+        $products = array_values($agency['products'] ?? []);
+        usort($products, static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
+        $agency['products'] = $products;
+    }
+    unset($agency);
 
     return $content;
 }
@@ -131,6 +142,37 @@ function atozee_merge_seed_agencies(array &$content): bool
     return $changed;
 }
 
+function atozee_merge_seed_products(array &$content): bool
+{
+    $seed = atozee_read_json(ATOZEE_SEED_CONTENT);
+    $byId = [];
+    foreach ($seed['agencies'] ?? [] as $agency) {
+        $id = (string) ($agency['id'] ?? '');
+        if ($id !== '') {
+            $byId[$id] = $agency;
+        }
+    }
+
+    $changed = false;
+    foreach ($content['agencies'] as &$agency) {
+        if (array_key_exists('products', $agency)) {
+            continue;
+        }
+        $id = (string) ($agency['id'] ?? '');
+        $products = array_values($byId[$id]['products'] ?? []);
+        if ($products === []) {
+            $agency['products'] = [];
+            $changed = true;
+            continue;
+        }
+        $agency['products'] = $products;
+        $changed = true;
+    }
+    unset($agency);
+
+    return $changed;
+}
+
 function atozee_save_content(array $content): bool
 {
     $content['categories'] = array_values($content['categories'] ?? []);
@@ -176,6 +218,20 @@ function atozee_agencies_in(array $content, string $categoryId): array
         $content['agencies'],
         static fn($agency) => ($agency['category_id'] ?? '') === $categoryId
     ));
+}
+
+function atozee_public_products_json(array $agency): string
+{
+    $out = [];
+    foreach (array_values($agency['products'] ?? []) as $product) {
+        $out[] = [
+            'name' => (string) ($product['name'] ?? ''),
+            'description' => (string) ($product['description'] ?? ''),
+            'image' => atozee_image_src((string) ($product['image'] ?? '')),
+        ];
+    }
+
+    return json_encode($out, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) ?: '[]';
 }
 
 function atozee_unique_slug(array $content, string $name, ?string $ignoreId = null): string

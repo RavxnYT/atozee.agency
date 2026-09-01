@@ -164,6 +164,7 @@ button, input, textarea, select { font: inherit; }
 }
 .row-card h3 { font-family: var(--serif); font-size: 1.15rem; }
 .row-card p { color: var(--ink-soft); font-size: 0.9rem; margin-top: 4px; }
+.muted { color: var(--ink-soft); font-size: 0.9rem; margin-top: 4px; }
 .row-actions, .inline-forms { display: flex; gap: 8px; flex-wrap: wrap; }
 .category-row { grid-template-columns: 1fr auto; }
 .preview { width: 120px; height: 80px; object-fit: cover; border-radius: 10px; display: none; }

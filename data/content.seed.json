@@ -35,7 +35,44 @@
       "name": "Urban Brew",
       "description": "A specialty roastery pairing single-origin beans with café programs built for high-volume service.",
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80",
-      "sort": 1
+      "sort": 1,
+      "products": [
+        {
+          "id": "pr_ub_coconut",
+          "name": "Coconut milk",
+          "description": "Barista coconut milk that holds foam for espresso drinks.",
+          "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ub_oat",
+          "name": "Oat milk",
+          "description": "Oat barista blend for cappuccinos and flat whites.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ub_almond",
+          "name": "Almond milk",
+          "description": "Light almond milk for iced lattes and filter pairings.",
+          "image": "https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ub_whole",
+          "name": "Whole dairy milk",
+          "description": "Full-fat dairy for classic café programs.",
+          "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        },
+        {
+          "id": "pr_ub_soy",
+          "name": "Barista soy",
+          "description": "Stable soy milk designed for high-volume steam wands.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 5
+        }
+      ]
     },
     {
       "id": "ag_cedar_roastery",
@@ -43,7 +80,37 @@
       "name": "Cedar Roastery",
       "description": "Levant-inspired coffee concepts, house blends, and barista training for modern coffee shops.",
       "image": "https://images.unsplash.com/photo-1459755486867-b55449bb39ff?auto=format&fit=crop&w=1200&q=80",
-      "sort": 2
+      "sort": 2,
+      "products": [
+        {
+          "id": "pr_cr_house",
+          "name": "House blend",
+          "description": "Levant-leaning espresso blend for milk drinks.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_cr_filter",
+          "name": "Filter lot",
+          "description": "Single-origin filter for pourover bars.",
+          "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_cr_cardamom",
+          "name": "Cardamom espresso",
+          "description": "Spice-forward espresso for regional menus.",
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_cr_decaf",
+          "name": "Decaf lot",
+          "description": "Sugarcane-process decaf that still tastes like coffee.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_atelier_cafe",
@@ -51,7 +118,37 @@
       "name": "Atelier Café",
       "description": "Boutique equipment, signature drinks, and turnkey café identity for premium locations.",
       "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80",
-      "sort": 3
+      "sort": 3,
+      "products": [
+        {
+          "id": "pr_ac_syrup",
+          "name": "House syrups",
+          "description": "Vanilla, pistachio, and seasonal café syrups.",
+          "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ac_cups",
+          "name": "Signature cups",
+          "description": "Branded ceramic cups for boutique rooms.",
+          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ac_machine",
+          "name": "Espresso kit",
+          "description": "Compact two-group package for small sites.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ac_menu",
+          "name": "Drink recipes",
+          "description": "Turnkey signature-drink cards for staff.",
+          "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_harbor_espresso",
@@ -59,7 +156,37 @@
       "name": "Harbor Espresso",
       "description": "Reliable espresso programs, grinders, and consumables sourced for consistent quality.",
       "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1200&q=80",
-      "sort": 4
+      "sort": 4,
+      "products": [
+        {
+          "id": "pr_he_beans",
+          "name": "Espresso blend",
+          "description": "Workhorse blend for harbor-volume service.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_he_grinder",
+          "name": "Grinder set",
+          "description": "Burr grinders matched to the espresso program.",
+          "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_he_cups",
+          "name": "Demitasse",
+          "description": "Thick-walled espresso cups.",
+          "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_he_clean",
+          "name": "Cleaning kit",
+          "description": "Backflush detergent and group brushes.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_golden_bean",
@@ -67,7 +194,37 @@
       "name": "Golden Bean",
       "description": "Wholesale beans, syrups, and café packaging with transparent pricing from A to Zee.",
       "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80",
-      "sort": 5
+      "sort": 5,
+      "products": [
+        {
+          "id": "pr_gb_beans",
+          "name": "Wholesale beans",
+          "description": "Kilo bags for multi-site cafés.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_gb_syrup",
+          "name": "Syrup case",
+          "description": "High-use flavored syrups with clear costing.",
+          "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_gb_cups",
+          "name": "Takeaway cups",
+          "description": "Double-wall cups and lids.",
+          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_gb_sugar",
+          "name": "Cane sticks",
+          "description": "Portioned cane sugar for counters.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_noon_nickel",
@@ -75,7 +232,37 @@
       "name": "Noon & Nickel",
       "description": "Daypart café programs, pastry pairings, and house blends for high-street coffee shops.",
       "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80",
-      "sort": 6
+      "sort": 6,
+      "products": [
+        {
+          "id": "pr_nn_pastry",
+          "name": "Morning pastry",
+          "description": "Croissant and bun program for the first rush.",
+          "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_nn_blend",
+          "name": "Noon blend",
+          "description": "Medium roast for all-day milk drinks.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_nn_toast",
+          "name": "Savory toast",
+          "description": "Café toast toppings sourced as a set.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_nn_juice",
+          "name": "Daypart juice",
+          "description": "Cold-pressed citrus for the lunch window.",
+          "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_lumen_coffee",
@@ -83,7 +270,37 @@
       "name": "Lumen Coffee",
       "description": "Bright single origins, filter kits, and training notes for specialty bars.",
       "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&q=80",
-      "sort": 7
+      "sort": 7,
+      "products": [
+        {
+          "id": "pr_lm_ethio",
+          "name": "Ethiopia filter",
+          "description": "Floral washed lot for V60 service.",
+          "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_lm_paper",
+          "name": "Filter papers",
+          "description": "Sized papers for the kit.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_lm_kettle",
+          "name": "Pour kettle",
+          "description": "Gooseneck kettles for the bar.",
+          "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_lm_notes",
+          "name": "Cupping notes",
+          "description": "Tasting cards for staff training.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_press_house",
@@ -91,7 +308,37 @@
       "name": "Press House",
       "description": "Batch brew hardware, paper, and consumables sourced for consistent morning volume.",
       "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80",
-      "sort": 8
+      "sort": 8,
+      "products": [
+        {
+          "id": "pr_ph_batch",
+          "name": "Batch brewer",
+          "description": "Volume brewer for the morning line.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ph_paper",
+          "name": "Brew paper",
+          "description": "Flat-bottom papers by the case.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ph_urn",
+          "name": "Service urns",
+          "description": "Insulated urns that hold temperature.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ph_blend",
+          "name": "House drip",
+          "description": "Blend built for batch, not espresso.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_marrow_cafe",
@@ -99,7 +346,37 @@
       "name": "Marrow Café",
       "description": "All-day café identity, milk alternatives, and signature drink builds for compact sites.",
       "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
-      "sort": 9
+      "sort": 9,
+      "products": [
+        {
+          "id": "pr_mc_oat",
+          "name": "Oat barista",
+          "description": "Oat milk for compact all-day sites.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_mc_almond",
+          "name": "Almond barista",
+          "description": "Almond milk with enough body for latte art.",
+          "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_mc_matcha",
+          "name": "Ceremonial matcha",
+          "description": "Matcha tins for signature drinks.",
+          "image": "https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_mc_cookie",
+          "name": "Counter cookie",
+          "description": "One-hand pastry for the till.",
+          "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_drift_roasters",
@@ -107,7 +384,37 @@
       "name": "Drift Roasters",
       "description": "Small-lot roasting partners, subscription packing, and wholesale bags for independent shops.",
       "image": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=1200&q=80",
-      "sort": 10
+      "sort": 10,
+      "products": [
+        {
+          "id": "pr_dr_sub",
+          "name": "Subscription bags",
+          "description": "Retail bags for weekly drops.",
+          "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_dr_omni",
+          "name": "Omni roast",
+          "description": "One roast that works espresso and filter.",
+          "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_dr_boxes",
+          "name": "Mailer boxes",
+          "description": "Packaging for roasted-to-order.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_dr_labels",
+          "name": "Lot labels",
+          "description": "Traceable bag labels.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_maison_levant",
@@ -115,7 +422,37 @@
       "name": "Maison Levant",
       "description": "Kitchen-ready ingredients and tableware curated for contemporary Levantine restaurants.",
       "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
-      "sort": 1
+      "sort": 1,
+      "products": [
+        {
+          "id": "pr_ml_tahini",
+          "name": "Tahini",
+          "description": "Stone-milled tahini for sauces and mezze.",
+          "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ml_zaatar",
+          "name": "Za’atar",
+          "description": "Herb and sesame blend for the pass.",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ml_plates",
+          "name": "Mezze plates",
+          "description": "Shared plates for Levantine service.",
+          "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ml_olive",
+          "name": "Cooking olive oil",
+          "description": "High-heat oil for the line.",
+          "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_olive_table",
@@ -123,7 +460,37 @@
       "name": "The Olive Table",
       "description": "Olive oils, pantry staples, and supplier relationships built for independent restaurants.",
       "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
-      "sort": 2
+      "sort": 2,
+      "products": [
+        {
+          "id": "pr_ot_evoo",
+          "name": "Extra virgin",
+          "description": "Finishing oil for independent rooms.",
+          "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ot_olives",
+          "name": "Cured olives",
+          "description": "Service olives by the kilo.",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ot_vinegar",
+          "name": "Wine vinegar",
+          "description": "Aged vinegar for dressings.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ot_pantry",
+          "name": "Pantry staples",
+          "description": "Legumes and grains on recurring order.",
+          "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_ember_kitchen",
@@ -131,7 +498,37 @@
       "name": "Ember Kitchen",
       "description": "Grill-focused sourcing, premium proteins, and back-of-house equipment for busy kitchens.",
       "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
-      "sort": 3
+      "sort": 3,
+      "products": [
+        {
+          "id": "pr_ek_rib",
+          "name": "Grill ribeye",
+          "description": "Portioned steaks for the grill.",
+          "image": "https://images.unsplash.com/photo-1432139509613-5c4255815697?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_ek_charcoal",
+          "name": "Restaurant charcoal",
+          "description": "Clean-burn charcoal for wood-fire lines.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_ek_tongs",
+          "name": "Grill tools",
+          "description": "Heavy tongs and rest racks.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_ek_rub",
+          "name": "House rub",
+          "description": "Dry rub for proteins.",
+          "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_azure_dining",
@@ -139,7 +536,37 @@
       "name": "Azure Dining",
       "description": "Hospitality-grade serviceware and fit-out partners for restaurants that want a refined look.",
       "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80",
-      "sort": 4
+      "sort": 4,
+      "products": [
+        {
+          "id": "pr_az_glass",
+          "name": "Stemware",
+          "description": "Wine and water glass sets.",
+          "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_az_linen",
+          "name": "Service linen",
+          "description": "Napkins and tablecloths.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_az_flatware",
+          "name": "Flatware",
+          "description": "Hospitality-weight cutlery.",
+          "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_az_lamp",
+          "name": "Table lamps",
+          "description": "Low lighting for dining rooms.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_souk_grain",
@@ -147,7 +574,37 @@
       "name": "Souk & Grain",
       "description": "Dry goods, spices, and specialty imports negotiated for restaurants and retail kitchens.",
       "image": "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
-      "sort": 5
+      "sort": 5,
+      "products": [
+        {
+          "id": "pr_sg_bulgur",
+          "name": "Bulgur",
+          "description": "Coarse and fine bulgur for kitchens.",
+          "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_sg_spice",
+          "name": "Spice crate",
+          "description": "Cumin, sumac, and Aleppo pepper.",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_sg_rice",
+          "name": "Restaurant rice",
+          "description": "Long-grain lots for volume service.",
+          "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_sg_lentil",
+          "name": "Red lentils",
+          "description": "Fast-cook lentils for soups.",
+          "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_salt_cedar",
@@ -155,7 +612,37 @@
       "name": "Salt & Cedar",
       "description": "Wood-fired pantry, finishing salts, and service pieces for restaurants that cook over fire.",
       "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
-      "sort": 6
+      "sort": 6,
+      "products": [
+        {
+          "id": "pr_sc_salt",
+          "name": "Finishing salt",
+          "description": "Flake salt for the pass.",
+          "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_sc_cedar",
+          "name": "Cedar planks",
+          "description": "Grill planks for service.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_sc_oil",
+          "name": "Smoke oil",
+          "description": "Oil finished over wood.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_sc_ember",
+          "name": "Cast pans",
+          "description": "Pans that take the fire.",
+          "image": "https://images.unsplash.com/photo-1432139509613-5c4255815697?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_brasserie_vale",
@@ -163,7 +650,37 @@
       "name": "Brasserie Vale",
       "description": "Classic brasserie sourcing: linens, glassware, and kitchen staples with reliable lead times.",
       "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
-      "sort": 7
+      "sort": 7,
+      "products": [
+        {
+          "id": "pr_bv_linen",
+          "name": "Brasserie linen",
+          "description": "White service linen on rotation.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_bv_glass",
+          "name": "Bistro glass",
+          "description": "Tumblers and wine stems.",
+          "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_bv_butter",
+          "name": "Service butter",
+          "description": "Portioned butter for tables.",
+          "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_bv_steak",
+          "name": "Frites program",
+          "description": "Frozen-to-fry potatoes with spec sheets.",
+          "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_kite_bone",
@@ -171,7 +688,37 @@
       "name": "Kite & Bone",
       "description": "Seafood-first suppliers, ice chain, and plating pieces for coastal and city kitchens.",
       "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1200&q=80",
-      "sort": 8
+      "sort": 8,
+      "products": [
+        {
+          "id": "pr_kb_oyster",
+          "name": "Oysters",
+          "description": "Live oysters with ice-chain notes.",
+          "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_kb_ice",
+          "name": "Flake ice",
+          "description": "Seafood ice program.",
+          "image": "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_kb_plates",
+          "name": "Shell plates",
+          "description": "Service ware for raw bar.",
+          "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_kb_citrus",
+          "name": "Citrus garnish",
+          "description": "Lemons and mignonette kit.",
+          "image": "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_quiet_oven",
@@ -179,7 +726,37 @@
       "name": "The Quiet Oven",
       "description": "Bakery-adjacent restaurants: flour programs, ovens, and pastry mise sourced as one brief.",
       "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
-      "sort": 9
+      "sort": 9,
+      "products": [
+        {
+          "id": "pr_qo_flour",
+          "name": "Baker’s flour",
+          "description": "Strong flour for restaurant bakeries.",
+          "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_qo_yeast",
+          "name": "Fresh yeast",
+          "description": "Yeast program with delivery cadence.",
+          "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_qo_loaf",
+          "name": "Service bread",
+          "description": "Parbaked loaves for the table.",
+          "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_qo_pastry",
+          "name": "Pastry butter",
+          "description": "Laminated-dough butter.",
+          "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     },
     {
       "id": "ag_portico",
@@ -187,7 +764,37 @@
       "name": "Portico",
       "description": "Terrace and lobby dining fit-out, outdoor serviceware, and seasonal menu imports.",
       "image": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80",
-      "sort": 10
+      "sort": 10,
+      "products": [
+        {
+          "id": "pr_po_outdoor",
+          "name": "Terrace chairs",
+          "description": "Weathered dining chairs for terraces.",
+          "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=900&q=80",
+          "sort": 1
+        },
+        {
+          "id": "pr_po_glass",
+          "name": "Outdoor glass",
+          "description": "Unbreakable service glass.",
+          "image": "https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=900&q=80",
+          "sort": 2
+        },
+        {
+          "id": "pr_po_menu",
+          "name": "Seasonal produce",
+          "description": "Lobby-dining produce drops.",
+          "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=900&q=80",
+          "sort": 3
+        },
+        {
+          "id": "pr_po_lantern",
+          "name": "Table lanterns",
+          "description": "Evening lighting for the terrace.",
+          "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=900&q=80",
+          "sort": 4
+        }
+      ]
     }
   ]
 }

@@ -56,6 +56,16 @@ function atozee_admin_handle_request(): void
                 atozee_delete_agency_from_post();
                 break;
 
+            case 'save_product':
+                atozee_require_admin();
+                atozee_save_product_from_post();
+                break;
+
+            case 'delete_product':
+                atozee_require_admin();
+                atozee_delete_product_from_post();
+                break;
+
             case 'change_password':
                 atozee_require_admin();
                 $error = atozee_change_password(
@@ -242,16 +252,19 @@ function atozee_save_agency_from_post(): never
         }
 
         $inCategory = atozee_agencies_in($content, $categoryId);
+        $newId = atozee_id('ag');
         $content['agencies'][] = [
-            'id' => atozee_id('ag'),
+            'id' => $newId,
             'category_id' => $categoryId,
             'name' => $name,
             'description' => $description,
             'image' => $image,
             'sort' => count($inCategory) + 1,
+            'products' => [],
         ];
         atozee_save_content($content);
-        atozee_flash('Agency added.');
+        atozee_flash('Agency added. Add the products visitors will see under Explore.');
+        atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($newId));
     } else {
         $found = false;
         foreach ($content['agencies'] as &$agency) {
@@ -284,9 +297,8 @@ function atozee_save_agency_from_post(): never
 
         atozee_save_content($content);
         atozee_flash('Agency updated.');
+        atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($id));
     }
-
-    atozee_redirect('admin/?view=agencies&category=' . rawurlencode($categoryId));
 }
 
 function atozee_delete_agency_from_post(): never
@@ -302,6 +314,9 @@ function atozee_delete_agency_from_post(): never
             $found = true;
             $categoryId = (string) ($agency['category_id'] ?? '');
             atozee_delete_upload_if_local((string) ($agency['image'] ?? ''));
+            foreach ($agency['products'] ?? [] as $product) {
+                atozee_delete_upload_if_local((string) ($product['image'] ?? ''));
+            }
             continue;
         }
         $remaining[] = $agency;
@@ -315,4 +330,119 @@ function atozee_delete_agency_from_post(): never
     atozee_save_content($content);
     atozee_flash('Agency removed.');
     atozee_redirect('admin/?view=agencies&category=' . rawurlencode($categoryId));
+}
+
+function atozee_save_product_from_post(): never
+{
+    $content = atozee_content();
+    $agencyId = trim((string) ($_POST['agency_id'] ?? ''));
+    $productId = trim((string) ($_POST['id'] ?? ''));
+    $name = trim((string) ($_POST['name'] ?? ''));
+    $description = trim((string) ($_POST['description'] ?? ''));
+    $imageUrl = trim((string) ($_POST['image_url'] ?? ''));
+
+    if ($name === '') {
+        throw new RuntimeException('Product name is required.');
+    }
+
+    $agency = atozee_find_agency($content, $agencyId);
+    if ($agency === null) {
+        throw new RuntimeException('Agency not found.');
+    }
+
+    $uploaded = atozee_handle_upload($_FILES['image'] ?? null);
+    $image = $uploaded ?: $imageUrl;
+    $foundAgency = false;
+
+    foreach ($content['agencies'] as &$item) {
+        if (($item['id'] ?? '') !== $agencyId) {
+            continue;
+        }
+        $foundAgency = true;
+        $item['products'] = array_values($item['products'] ?? []);
+
+        if ($productId === '') {
+            if ($image === '') {
+                throw new RuntimeException('Add a product image or image URL.');
+            }
+            $item['products'][] = [
+                'id' => atozee_id('pr'),
+                'name' => $name,
+                'description' => $description,
+                'image' => $image,
+                'sort' => count($item['products']) + 1,
+            ];
+            break;
+        }
+
+        $foundProduct = false;
+        foreach ($item['products'] as &$product) {
+            if (($product['id'] ?? '') !== $productId) {
+                continue;
+            }
+            $previous = (string) ($product['image'] ?? '');
+            if ($uploaded) {
+                atozee_delete_upload_if_local($previous);
+                $product['image'] = $uploaded;
+            } elseif ($imageUrl !== '') {
+                if ($imageUrl !== $previous) {
+                    atozee_delete_upload_if_local($previous);
+                }
+                $product['image'] = $imageUrl;
+            }
+            $product['name'] = $name;
+            $product['description'] = $description;
+            $foundProduct = true;
+            break;
+        }
+        unset($product);
+
+        if (!$foundProduct) {
+            throw new RuntimeException('Product not found.');
+        }
+        break;
+    }
+    unset($item);
+
+    if (!$foundAgency) {
+        throw new RuntimeException('Agency not found.');
+    }
+
+    atozee_save_content($content);
+    atozee_flash($productId === '' ? 'Product added.' : 'Product updated.');
+    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId));
+}
+
+function atozee_delete_product_from_post(): never
+{
+    $agencyId = trim((string) ($_POST['agency_id'] ?? ''));
+    $productId = trim((string) ($_POST['id'] ?? ''));
+    $content = atozee_content();
+    $found = false;
+
+    foreach ($content['agencies'] as &$agency) {
+        if (($agency['id'] ?? '') !== $agencyId) {
+            continue;
+        }
+        $remaining = [];
+        foreach ($agency['products'] ?? [] as $product) {
+            if (($product['id'] ?? '') === $productId) {
+                $found = true;
+                atozee_delete_upload_if_local((string) ($product['image'] ?? ''));
+                continue;
+            }
+            $remaining[] = $product;
+        }
+        $agency['products'] = array_values($remaining);
+        break;
+    }
+    unset($agency);
+
+    if (!$found) {
+        throw new RuntimeException('Product not found.');
+    }
+
+    atozee_save_content($content);
+    atozee_flash('Product removed.');
+    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId));
 }

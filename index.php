@@ -35,7 +35,7 @@ function atozee_partner_code(array $category, int $index): string
     <meta name="theme-color" content="#171512">
     <meta name="description" content="AtoZee is a sourcing agency connecting F&amp;B brands with trusted suppliers worldwide — better quality, clearer pricing, and operations from A to Zee.">
     <title><?= e($brand) ?> — Sourcing Agency</title>
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.1.1">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.2.0">
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -236,6 +236,7 @@ function atozee_partner_code(array $category, int $index): string
                                 data-image="<?= e(atozee_image_src((string) $agency['image'])) ?>"
                                 data-category="<?= e($category['name']) ?>"
                                 data-code="<?= e($code) ?>"
+                                data-products="<?= e(atozee_public_products_json($agency)) ?>"
                             >
                                 <div class="partner-photo">
                                     <img src="<?= e(atozee_image_src((string) $agency['image'])) ?>" alt="<?= e($agency['name']) ?>" loading="lazy">
@@ -336,27 +337,31 @@ function atozee_partner_code(array $category, int $index): string
         <form method="dialog" class="sheet-close-form">
             <button class="sheet-close" value="close" type="submit">Close</button>
         </form>
-        <div class="sheet-media">
-            <img id="details-image" src="<?= e($logo) ?>" alt="">
+        <div class="sheet-view" id="sheet-intro">
+            <div class="sheet-media">
+                <img id="details-image" src="<?= e($logo) ?>" alt="">
+            </div>
+            <div class="sheet-body">
+                <p class="eyebrow" id="details-category"></p>
+                <h2 id="details-title"></h2>
+                <p class="partner-code" id="details-shop-number"></p>
+                <p id="details-description"></p>
+                <div class="sheet-actions">
+                    <button type="button" class="btn btn-dark" id="explore-products">Explore</button>
+                </div>
+            </div>
         </div>
-        <div class="sheet-body">
-            <p class="eyebrow" id="details-category"></p>
-            <h2 id="details-title"></h2>
-            <p class="partner-code" id="details-shop-number"></p>
-            <p id="details-description"></p>
-            <div class="sheet-actions">
-                <a id="details-contact-link" class="btn btn-dark" href="#">Email the desk</a>
-                <a id="details-whatsapp-link" class="btn btn-line" href="#" target="_blank" rel="noopener">WhatsApp</a>
+        <div class="sheet-view" id="sheet-products" hidden>
+            <div class="sheet-body sheet-products-body">
+                <button type="button" class="sheet-back" id="products-back">← Back</button>
+                <p class="eyebrow">From the desk</p>
+                <h2 id="products-heading"></h2>
+                <p class="sheet-products-lead" id="products-lead"></p>
+                <div class="product-grid" id="product-grid"></div>
             </div>
         </div>
     </dialog>
 
-    <script>
-        window.ATOZEE = {
-            email: <?= json_encode($email) ?>,
-            whatsapp: <?= json_encode($whatsapp) ?>
-        };
-    </script>
-    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.0.1"></script>
+    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.2.0"></script>
 </body>
 </html>
