@@ -264,7 +264,7 @@ function atozee_save_agency_from_post(): never
         ];
         atozee_save_content($content);
         atozee_flash('Agency added. Add the products visitors will see under Explore.');
-        atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($newId));
+        atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($newId) . '#explore-products');
     } else {
         $found = false;
         foreach ($content['agencies'] as &$agency) {
@@ -410,7 +410,7 @@ function atozee_save_product_from_post(): never
 
     atozee_save_content($content);
     atozee_flash($productId === '' ? 'Product added.' : 'Product updated.');
-    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId));
+    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId) . '#explore-products');
 }
 
 function atozee_delete_product_from_post(): never
@@ -444,5 +444,5 @@ function atozee_delete_product_from_post(): never
 
     atozee_save_content($content);
     atozee_flash('Product removed.');
-    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId));
+    atozee_redirect('admin/?view=agencies&edit_agency=' . rawurlencode($agencyId) . '#explore-products');
 }
