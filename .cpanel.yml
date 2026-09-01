@@ -1,0 +1,16 @@
+---
+deployment:
+  tasks:
+    - /bin/mkdir -p /home/atozkptt/public_html/data /home/atozkptt/public_html/uploads/agencies
+    - /bin/sh -c 'test ! -f /home/atozkptt/public_html/index.html || mv /home/atozkptt/public_html/index.html /home/atozkptt/public_html/index.html.bak'
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/index.php /home/atozkptt/public_html/index.php
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/.htaccess /home/atozkptt/public_html/.htaccess
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/.user.ini /home/atozkptt/public_html/.user.ini
+    - /bin/cp -Rf /home/atozkptt/repositories/atozee.agency/admin /home/atozkptt/public_html/
+    - /bin/cp -Rf /home/atozkptt/repositories/atozee.agency/assets /home/atozkptt/public_html/
+    - /bin/cp -Rf /home/atozkptt/repositories/atozee.agency/includes /home/atozkptt/public_html/
+    - /bin/cp -Rf /home/atozkptt/repositories/atozee.agency/js /home/atozkptt/public_html/
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/data/.htaccess /home/atozkptt/public_html/data/.htaccess
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/data/content.seed.json /home/atozkptt/public_html/data/content.seed.json
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/data/settings.seed.json /home/atozkptt/public_html/data/settings.seed.json
+    - /bin/cp -f /home/atozkptt/repositories/atozee.agency/uploads/.htaccess /home/atozkptt/public_html/uploads/.htaccess
