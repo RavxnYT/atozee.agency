@@ -70,6 +70,46 @@
       "sort": 5
     },
     {
+      "id": "ag_noon_nickel",
+      "category_id": "cat_coffee",
+      "name": "Noon & Nickel",
+      "description": "Daypart café programs, pastry pairings, and house blends for high-street coffee shops.",
+      "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80",
+      "sort": 6
+    },
+    {
+      "id": "ag_lumen_coffee",
+      "category_id": "cat_coffee",
+      "name": "Lumen Coffee",
+      "description": "Bright single origins, filter kits, and training notes for specialty bars.",
+      "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&q=80",
+      "sort": 7
+    },
+    {
+      "id": "ag_press_house",
+      "category_id": "cat_coffee",
+      "name": "Press House",
+      "description": "Batch brew hardware, paper, and consumables sourced for consistent morning volume.",
+      "image": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=80",
+      "sort": 8
+    },
+    {
+      "id": "ag_marrow_cafe",
+      "category_id": "cat_coffee",
+      "name": "Marrow Café",
+      "description": "All-day café identity, milk alternatives, and signature drink builds for compact sites.",
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1200&q=80",
+      "sort": 9
+    },
+    {
+      "id": "ag_drift_roasters",
+      "category_id": "cat_coffee",
+      "name": "Drift Roasters",
+      "description": "Small-lot roasting partners, subscription packing, and wholesale bags for independent shops.",
+      "image": "https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=1200&q=80",
+      "sort": 10
+    },
+    {
       "id": "ag_maison_levant",
       "category_id": "cat_restaurants",
       "name": "Maison Levant",
@@ -108,6 +148,46 @@
       "description": "Dry goods, spices, and specialty imports negotiated for restaurants and retail kitchens.",
       "image": "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
       "sort": 5
+    },
+    {
+      "id": "ag_salt_cedar",
+      "category_id": "cat_restaurants",
+      "name": "Salt & Cedar",
+      "description": "Wood-fired pantry, finishing salts, and service pieces for restaurants that cook over fire.",
+      "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+      "sort": 6
+    },
+    {
+      "id": "ag_brasserie_vale",
+      "category_id": "cat_restaurants",
+      "name": "Brasserie Vale",
+      "description": "Classic brasserie sourcing: linens, glassware, and kitchen staples with reliable lead times.",
+      "image": "https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=1200&q=80",
+      "sort": 7
+    },
+    {
+      "id": "ag_kite_bone",
+      "category_id": "cat_restaurants",
+      "name": "Kite & Bone",
+      "description": "Seafood-first suppliers, ice chain, and plating pieces for coastal and city kitchens.",
+      "image": "https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1200&q=80",
+      "sort": 8
+    },
+    {
+      "id": "ag_quiet_oven",
+      "category_id": "cat_restaurants",
+      "name": "The Quiet Oven",
+      "description": "Bakery-adjacent restaurants: flour programs, ovens, and pastry mise sourced as one brief.",
+      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=1200&q=80",
+      "sort": 9
+    },
+    {
+      "id": "ag_portico",
+      "category_id": "cat_restaurants",
+      "name": "Portico",
+      "description": "Terrace and lobby dining fit-out, outdoor serviceware, and seasonal menu imports.",
+      "image": "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80",
+      "sort": 10
     }
   ]
 }

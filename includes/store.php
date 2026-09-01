@@ -73,7 +73,7 @@ function atozee_content(): array
     usort($content['categories'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
     usort($content['agencies'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
 
-    if (atozee_repair_agency_images($content)) {
+    if (atozee_repair_agency_images($content) || atozee_merge_seed_agencies($content)) {
         atozee_save_content($content);
     }
 
@@ -97,6 +97,36 @@ function atozee_repair_agency_images(array &$content): bool
         }
     }
     unset($agency);
+
+    return $changed;
+}
+
+function atozee_merge_seed_agencies(array &$content): bool
+{
+    $seed = atozee_read_json(ATOZEE_SEED_CONTENT);
+    $seen = [];
+    foreach ($content['agencies'] as $agency) {
+        $id = (string) ($agency['id'] ?? '');
+        $name = strtolower(trim((string) ($agency['name'] ?? '')));
+        if ($id !== '') {
+            $seen[$id] = true;
+        }
+        if ($name !== '') {
+            $seen['name:' . $name] = true;
+        }
+    }
+
+    $changed = false;
+    foreach ($seed['agencies'] ?? [] as $agency) {
+        $id = (string) ($agency['id'] ?? '');
+        $name = strtolower(trim((string) ($agency['name'] ?? '')));
+        if ($id === '' || isset($seen[$id]) || ($name !== '' && isset($seen['name:' . $name]))) {
+            continue;
+        }
+        $content['agencies'][] = $agency;
+        $seen[$id] = true;
+        $changed = true;
+    }
 
     return $changed;
 }
