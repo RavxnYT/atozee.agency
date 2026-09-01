@@ -39,8 +39,8 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=2.0.0">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=3.0.0">
 </head>
 <body class="admin-body">
 <?php if (!$loggedIn): ?>
@@ -287,7 +287,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
             <?php endif; ?>
         </main>
     </div>
-    <script src="<?= e(atozee_site_url('js/admin.js')) ?>?v=2.0.0"></script>
+    <script src="<?= e(atozee_site_url('js/admin.js')) ?>?v=3.0.0"></script>
 <?php endif; ?>
 </body>
 </html>
