@@ -73,7 +73,32 @@ function atozee_content(): array
     usort($content['categories'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
     usort($content['agencies'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
 
+    if (atozee_repair_agency_images($content)) {
+        atozee_save_content($content);
+    }
+
     return $content;
+}
+
+function atozee_repair_agency_images(array &$content): bool
+{
+    $replacements = [
+        'photo-1509042239860-f550ce710b41' => 'https://images.unsplash.com/photo-1459755486867-b55449bb39ff?auto=format&fit=crop&w=1200&q=80',
+    ];
+
+    $changed = false;
+    foreach ($content['agencies'] as &$agency) {
+        $image = (string) ($agency['image'] ?? '');
+        foreach ($replacements as $needle => $replacement) {
+            if ($image !== '' && str_contains($image, $needle)) {
+                $agency['image'] = $replacement;
+                $changed = true;
+            }
+        }
+    }
+    unset($agency);
+
+    return $changed;
 }
 
 function atozee_save_content(array $content): bool

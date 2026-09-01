@@ -94,16 +94,14 @@ function initRails() {
 
     document.querySelectorAll('.view-all').forEach((btn) => {
         btn.addEventListener('click', () => {
-            const id = btn.dataset.target;
-            const section = document.getElementById(id);
+            const section = document.getElementById(btn.dataset.target);
             if (!section) return;
             const wrap = section.querySelector('.rail-wrap');
-            const grid = document.getElementById(`${id}-grid`);
-            const showing = grid && !grid.hidden;
-            if (!grid || !wrap) return;
-            grid.hidden = showing;
-            wrap.hidden = !showing;
-            btn.textContent = showing ? 'View the full desk' : 'Back to the rail';
+            const nav = section.querySelector('.rail-nav');
+            if (!wrap) return;
+            const grid = wrap.classList.toggle('is-grid');
+            if (nav) nav.hidden = grid;
+            btn.textContent = grid ? 'Back to the rail' : 'View the full desk';
         });
     });
 }
