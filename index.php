@@ -348,6 +348,7 @@ function atozee_partner_code(array $category, int $index): string
                 <p id="details-description"></p>
                 <div class="sheet-actions">
                     <button type="button" class="btn btn-dark" id="explore-products">Explore</button>
+                    <a id="details-whatsapp-link" class="btn btn-line" href="<?= e(atozee_whatsapp_url($whatsapp, 'Hi AtoZee Team')) ?>" target="_blank" rel="noopener">WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -362,6 +363,11 @@ function atozee_partner_code(array $category, int $index): string
         </div>
     </dialog>
 
-    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.2.0"></script>
+    <script>
+        window.ATOZEE = {
+            whatsapp: <?= json_encode($whatsapp) ?>
+        };
+    </script>
+    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.2.1"></script>
 </body>
 </html>

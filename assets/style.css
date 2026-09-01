@@ -516,7 +516,8 @@ h1, h2, h3 {
 .sheet-body { padding: 28px 32px 36px; }
 .sheet-body h2 { font-size: 2.4rem; margin-bottom: 6px; }
 .sheet-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
-.sheet-actions .btn { border: 0; cursor: pointer; }
+.sheet-actions .btn { cursor: pointer; }
+.sheet-actions button.btn { border-color: transparent; }
 .sheet.is-exploring { width: min(980px, calc(100% - 24px)); }
 .sheet-products-body { padding-top: 8px; }
 .sheet-back {

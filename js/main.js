@@ -185,13 +185,19 @@ function initPartnerSheet() {
     document.querySelectorAll('.partner-card').forEach((card) => {
         card.addEventListener('click', () => {
             partnerName = card.dataset.name || '';
+            const code = card.dataset.code || '';
             products = parseProducts(card.dataset.products);
             document.getElementById('details-image').src = card.dataset.image || '';
             document.getElementById('details-image').alt = partnerName;
             document.getElementById('details-title').textContent = partnerName;
             document.getElementById('details-description').textContent = card.dataset.description || '';
-            document.getElementById('details-shop-number').textContent = card.dataset.code || '';
+            document.getElementById('details-shop-number').textContent = code;
             document.getElementById('details-category').textContent = card.dataset.category || '';
+            const wa = document.getElementById('details-whatsapp-link');
+            if (wa) {
+                const digits = String((window.ATOZEE || {}).whatsapp || '').replace(/\D+/g, '');
+                wa.href = `https://wa.me/${digits}?text=${encodeURIComponent(`Hi AtoZee Team, I'm interested in learning more about ${partnerName} (${code})`)}`;
+            }
             showIntro();
             if (typeof sheet.showModal === 'function') sheet.showModal();
         });
