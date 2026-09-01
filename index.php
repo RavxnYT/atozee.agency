@@ -35,7 +35,7 @@ function atozee_partner_code(array $category, int $index): string
     <meta name="theme-color" content="#171512">
     <meta name="description" content="AtoZee is a sourcing agency connecting F&amp;B brands with trusted suppliers worldwide — better quality, clearer pricing, and operations from A to Zee.">
     <title><?= e($brand) ?> — Sourcing Agency</title>
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.1.0">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.1.1">
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
