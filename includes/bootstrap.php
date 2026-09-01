@@ -17,7 +17,17 @@ define('ATOZEE_SETTINGS_FILE', ATOZEE_DATA . '/settings.json');
 
 date_default_timezone_set('Asia/Beirut');
 
-if (session_status() !== PHP_SESSION_ACTIVE) {
+require_once ATOZEE_ROOT . '/includes/store.php';
+require_once ATOZEE_ROOT . '/includes/auth.php';
+
+atozee_ensure_storage();
+
+function atozee_session(): void
+{
+    if (session_status() === PHP_SESSION_ACTIVE) {
+        return;
+    }
+
     session_name('atozee_admin');
     session_start([
         'cookie_httponly' => true,
@@ -25,11 +35,6 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         'use_strict_mode' => true,
     ]);
 }
-
-require_once ATOZEE_ROOT . '/includes/store.php';
-require_once ATOZEE_ROOT . '/includes/auth.php';
-
-atozee_ensure_storage();
 
 function atozee_site_url(string $path = ''): string
 {
@@ -68,6 +73,7 @@ function atozee_id(string $prefix = 'id'): string
 
 function atozee_flash(?string $message = null, string $type = 'success'): ?array
 {
+    atozee_session();
     if ($message !== null) {
         $_SESSION['flash'] = ['message' => $message, 'type' => $type];
         return null;
@@ -80,6 +86,7 @@ function atozee_flash(?string $message = null, string $type = 'success'): ?array
 
 function atozee_csrf_token(): string
 {
+    atozee_session();
     if (empty($_SESSION['csrf_token'])) {
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     }

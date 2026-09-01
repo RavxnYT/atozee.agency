@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 function atozee_logged_in(): bool
 {
+    atozee_session();
     return !empty($_SESSION['admin_logged_in']);
 }
 
@@ -16,6 +17,7 @@ function atozee_require_admin(): void
 
 function atozee_attempt_login(string $username, string $password): bool
 {
+    atozee_session();
     $settings = atozee_settings();
     $expectedUser = (string) ($settings['username'] ?? 'admin');
     $hash = (string) ($settings['password_hash'] ?? '');
@@ -37,6 +39,7 @@ function atozee_attempt_login(string $username, string $password): bool
 
 function atozee_logout(): void
 {
+    atozee_session();
     $_SESSION = [];
     if (ini_get('session.use_cookies')) {
         $params = session_get_cookie_params();

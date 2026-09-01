@@ -36,14 +36,14 @@ $year = date('Y');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-    <div id="loading-screen">
+    <div id="loading-screen" aria-hidden="true">
         <div class="loader">
             <div class="orb"></div>
             <div class="logo"><?= e($brand) ?></div>
         </div>
     </div>
 
-    <div id="main-content" hidden>
+    <div id="main-content">
         <nav id="nav" class="nav">
             <button id="nav-toggle" class="nav-toggle" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">☰</button>
             <a class="nav-logo" href="#hero">

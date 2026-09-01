@@ -2,11 +2,11 @@ window.addEventListener('load', () => {
     const loading = document.getElementById('loading-screen');
     const main = document.getElementById('main-content');
     window.setTimeout(() => {
-        if (loading) loading.style.display = 'none';
-        if (main) {
-            main.hidden = false;
-            main.style.display = 'block';
+        if (loading) {
+            loading.classList.add('is-done');
+            loading.style.display = 'none';
         }
+        if (main) main.style.display = 'block';
         initHeroAnimations();
     }, 1200);
 });

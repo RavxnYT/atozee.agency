@@ -244,7 +244,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
                         </div>
                         <div class="form-group">
                             <label for="agency-image-url">Or image URL</label>
-                            <input id="agency-image-url" name="image_url" type="url" value="<?= e($editAgency['image'] ?? '') ?>" placeholder="https://...">
+                            <input id="agency-image-url" name="image_url" type="text" value="<?= e($editAgency['image'] ?? '') ?>" placeholder="https://... or keep the current path">
                             <?php if ($editAgency && !empty($editAgency['image'])): ?>
                                 <small>Leave as-is to keep the current image, or upload a new file to replace it.</small>
                             <?php endif; ?>

@@ -55,6 +55,15 @@ body.no-scroll {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+    animation: hideLoader 0.4s ease 2.2s forwards;
+}
+
+@keyframes hideLoader {
+    to { opacity: 0; visibility: hidden; pointer-events: none; }
+}
+
+#loading-screen.is-done {
+    display: none;
 }
 
 .loader {
