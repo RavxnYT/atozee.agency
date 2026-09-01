@@ -171,9 +171,18 @@ button, input, textarea, select { font: inherit; }
 
 @media (max-width: 900px) {
     .admin-shell { grid-template-columns: 1fr; }
-    .admin-sidebar { flex-direction: row; flex-wrap: wrap; align-items: center; }
+    .admin-sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px;
+        padding: 16px;
+    }
     .admin-nav { flex-direction: row; flex-wrap: wrap; }
     .admin-sidebar .spacer { display: none; }
     .form-grid, .row-card, .category-row { grid-template-columns: 1fr; }
-    .admin-main { padding: 20px; }
+    .admin-main { padding: 16px; }
+    .admin-header h1 { font-size: 1.8rem; }
+    .row-card img { width: 100%; height: 160px; }
+    .login-card { padding: 24px 18px; }
 }
