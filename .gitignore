@@ -1,0 +1,7 @@
+data/content.json
+data/settings.json
+uploads/agencies/*
+!uploads/agencies/.gitkeep
+.DS_Store
+Thumbs.db
+*.log

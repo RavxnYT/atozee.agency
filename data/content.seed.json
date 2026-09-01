@@ -1,0 +1,113 @@
+{
+  "site": {
+    "name": "AtoZee",
+    "tagline": "Your Global F&B Partner",
+    "about": "At AtoZee, we make sourcing simple. We connect F&B brands with trusted suppliers worldwide. Our goal is to help coffee shops, restaurants and retailers find better quality, better prices, and smoother operations from A to Zee.",
+    "email": "zeina@atozee.agency",
+    "whatsapp": "+96176858441",
+    "phone_display": "+961 76 85 84 41",
+    "owner": "Zeina Slim",
+    "developer_name": "Joe Boulos",
+    "developer_whatsapp": "+96176403131"
+  },
+  "categories": [
+    {
+      "id": "cat_coffee",
+      "name": "Coffee Shops",
+      "nav_label": "Coffee",
+      "cta_label": "Explore Coffee",
+      "slug": "coffee-shops",
+      "sort": 1
+    },
+    {
+      "id": "cat_restaurants",
+      "name": "Restaurants",
+      "nav_label": "Restaurants",
+      "cta_label": "Discover Restaurants",
+      "slug": "restaurants",
+      "sort": 2
+    }
+  ],
+  "agencies": [
+    {
+      "id": "ag_urban_brew",
+      "category_id": "cat_coffee",
+      "name": "Urban Brew",
+      "description": "A specialty roastery pairing single-origin beans with café programs built for high-volume service.",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=80",
+      "sort": 1
+    },
+    {
+      "id": "ag_cedar_roastery",
+      "category_id": "cat_coffee",
+      "name": "Cedar Roastery",
+      "description": "Levant-inspired coffee concepts, house blends, and barista training for modern coffee shops.",
+      "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b41?auto=format&fit=crop&w=1200&q=80",
+      "sort": 2
+    },
+    {
+      "id": "ag_atelier_cafe",
+      "category_id": "cat_coffee",
+      "name": "Atelier Café",
+      "description": "Boutique equipment, signature drinks, and turnkey café identity for premium locations.",
+      "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80",
+      "sort": 3
+    },
+    {
+      "id": "ag_harbor_espresso",
+      "category_id": "cat_coffee",
+      "name": "Harbor Espresso",
+      "description": "Reliable espresso programs, grinders, and consumables sourced for consistent quality.",
+      "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1200&q=80",
+      "sort": 4
+    },
+    {
+      "id": "ag_golden_bean",
+      "category_id": "cat_coffee",
+      "name": "Golden Bean",
+      "description": "Wholesale beans, syrups, and café packaging with transparent pricing from A to Zee.",
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=80",
+      "sort": 5
+    },
+    {
+      "id": "ag_maison_levant",
+      "category_id": "cat_restaurants",
+      "name": "Maison Levant",
+      "description": "Kitchen-ready ingredients and tableware curated for contemporary Levantine restaurants.",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80",
+      "sort": 1
+    },
+    {
+      "id": "ag_olive_table",
+      "category_id": "cat_restaurants",
+      "name": "The Olive Table",
+      "description": "Olive oils, pantry staples, and supplier relationships built for independent restaurants.",
+      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+      "sort": 2
+    },
+    {
+      "id": "ag_ember_kitchen",
+      "category_id": "cat_restaurants",
+      "name": "Ember Kitchen",
+      "description": "Grill-focused sourcing, premium proteins, and back-of-house equipment for busy kitchens.",
+      "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+      "sort": 3
+    },
+    {
+      "id": "ag_azure_dining",
+      "category_id": "cat_restaurants",
+      "name": "Azure Dining",
+      "description": "Hospitality-grade serviceware and fit-out partners for restaurants that want a refined look.",
+      "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80",
+      "sort": 4
+    },
+    {
+      "id": "ag_souk_grain",
+      "category_id": "cat_restaurants",
+      "name": "Souk & Grain",
+      "description": "Dry goods, spices, and specialty imports negotiated for restaurants and retail kitchens.",
+      "image": "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
+      "sort": 5
+    }
+  ]
+}
