@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const fileInput = document.querySelector('input[name="image"]');
-    const preview = document.getElementById('image-preview');
-    if (fileInput && preview) {
-        fileInput.addEventListener('change', () => {
-            const file = fileInput.files && fileInput.files[0];
+    const bindPreview = (input, preview) => {
+        if (!input || !preview) return;
+        input.addEventListener('change', () => {
+            const file = input.files && input.files[0];
             if (!file) {
                 preview.classList.remove('show');
                 return;
@@ -11,7 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
             preview.src = URL.createObjectURL(file);
             preview.classList.add('show');
         });
-    }
+    };
+
+    bindPreview(document.getElementById('agency-image'), document.getElementById('image-preview'));
+    bindPreview(document.getElementById('product-image'), document.getElementById('product-preview'));
 
     document.querySelectorAll('[data-confirm]').forEach((form) => {
         form.addEventListener('submit', (e) => {

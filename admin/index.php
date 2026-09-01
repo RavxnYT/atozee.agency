@@ -23,9 +23,17 @@ $editAgencyId = (string) ($_GET['edit_agency'] ?? '');
 $filterCategory = (string) ($_GET['category'] ?? ($categories[0]['id'] ?? ''));
 $editCategory = $editCategoryId !== '' ? atozee_find_category($content, $editCategoryId) : null;
 $editAgency = $editAgencyId !== '' ? atozee_find_agency($content, $editAgencyId) : null;
+$editProductId = (string) ($_GET['edit_product'] ?? '');
+$editProduct = null;
 
 if ($editAgency) {
     $filterCategory = (string) $editAgency['category_id'];
+    foreach ($editAgency['products'] ?? [] as $product) {
+        if (($product['id'] ?? '') === $editProductId) {
+            $editProduct = $product;
+            break;
+        }
+    }
 }
 
 $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategory) : $content['agencies'];
@@ -40,7 +48,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=3.1.0">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/admin.css')) ?>?v=3.2.0">
 </head>
 <body class="admin-body">
 <?php if (!$loggedIn): ?>
@@ -53,7 +61,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
                 <span>AtoZee</span>
             </div>
             <h1>Admin panel</h1>
-            <p>Sign in to update categories, agency names, and images.</p>
+            <p>Sign in to update categories, agencies, and the products shown under Explore.</p>
             <?php if ($flash): ?>
                 <div class="flash <?= e($flash['type']) ?>"><?= e($flash['message']) ?></div>
             <?php endif; ?>
@@ -200,7 +208,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
                 <div class="admin-header">
                     <div>
                         <h1>Agencies</h1>
-                        <p>Change names and images. New agencies show immediately on the public site.</p>
+                        <p>Change names, images, and the products visitors see when they tap Explore.</p>
                     </div>
                 </div>
 
@@ -258,6 +266,71 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
                     </form>
                 </section>
 
+                <?php if ($editAgency): ?>
+                    <section class="panel">
+                        <h2><?= $editProduct ? 'Edit product' : 'Add a product' ?></h2>
+                        <p class="muted" style="margin:-4px 0 16px">Shown when visitors tap Explore on <?= e($editAgency['name']) ?>.</p>
+                        <form method="post" enctype="multipart/form-data" class="form-grid">
+                            <?= atozee_csrf_field() ?>
+                            <input type="hidden" name="action" value="save_product">
+                            <input type="hidden" name="agency_id" value="<?= e($editAgency['id']) ?>">
+                            <input type="hidden" name="id" value="<?= e($editProduct['id'] ?? '') ?>">
+                            <div class="form-group">
+                                <label for="product-name">Product name</label>
+                                <input id="product-name" name="name" required value="<?= e($editProduct['name'] ?? '') ?>" placeholder="Coconut milk">
+                            </div>
+                            <div class="form-group full">
+                                <label for="product-description">Short note</label>
+                                <textarea id="product-description" name="description" placeholder="What this product is"><?= e($editProduct['description'] ?? '') ?></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="product-image">Upload image</label>
+                                <input id="product-image" name="image" type="file" accept="image/jpeg,image/png,image/webp,image/gif" data-preview="product-preview">
+                                <small>JPG, PNG, WEBP, or GIF. Max 8 MB.</small>
+                                <img id="product-preview" class="preview" alt="Preview">
+                            </div>
+                            <div class="form-group">
+                                <label for="product-image-url">Or image URL</label>
+                                <input id="product-image-url" name="image_url" type="text" value="<?= e($editProduct['image'] ?? '') ?>" placeholder="https://... or keep the current path">
+                            </div>
+                            <div class="form-group full">
+                                <button class="btn btn-primary" type="submit"><?= $editProduct ? 'Save product' : 'Add product' ?></button>
+                                <?php if ($editProduct): ?>
+                                    <a class="btn" href="<?= e(atozee_site_url('admin/?view=agencies&edit_agency=' . rawurlencode((string) $editAgency['id']))) ?>">Cancel product</a>
+                                <?php endif; ?>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="panel">
+                        <h2>Products for <?= e($editAgency['name']) ?></h2>
+                        <div class="table-list">
+                            <?php if (empty($editAgency['products'])): ?>
+                                <p class="muted">No products yet. Add coconut milk, oat milk, or whatever this partner actually stocks.</p>
+                            <?php endif; ?>
+                            <?php foreach ($editAgency['products'] ?? [] as $product): ?>
+                                <article class="row-card">
+                                    <img src="<?= e(atozee_image_src((string) ($product['image'] ?? ''))) ?>" alt="">
+                                    <div>
+                                        <h3><?= e($product['name'] ?? '') ?></h3>
+                                        <p><?= e($product['description'] ?? '') ?></p>
+                                    </div>
+                                    <div class="row-actions">
+                                        <a class="btn btn-small" href="<?= e(atozee_site_url('admin/?view=agencies&edit_agency=' . rawurlencode((string) $editAgency['id']) . '&edit_product=' . rawurlencode((string) $product['id']))) ?>">Edit</a>
+                                        <form method="post" data-confirm="Delete this product?">
+                                            <?= atozee_csrf_field() ?>
+                                            <input type="hidden" name="action" value="delete_product">
+                                            <input type="hidden" name="agency_id" value="<?= e($editAgency['id']) ?>">
+                                            <input type="hidden" name="id" value="<?= e($product['id']) ?>">
+                                            <button class="btn btn-small btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </div>
+                                </article>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                <?php endif; ?>
+
                 <section class="panel">
                     <h2>Listings</h2>
                     <div class="table-list">
@@ -270,6 +343,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
                                 <div>
                                     <h3><?= e($agency['name']) ?></h3>
                                     <p><?= e($agency['description'] ?? '') ?></p>
+                                    <p class="muted"><?= count($agency['products'] ?? []) ?> products</p>
                                 </div>
                                 <div class="row-actions">
                                     <a class="btn btn-small" href="<?= e(atozee_site_url('admin/?view=agencies&edit_agency=' . rawurlencode((string) $agency['id']))) ?>">Edit</a>
@@ -287,7 +361,7 @@ $agencies = $filterCategory !== '' ? atozee_agencies_in($content, $filterCategor
             <?php endif; ?>
         </main>
     </div>
-    <script src="<?= e(atozee_site_url('js/admin.js')) ?>?v=3.0.0"></script>
+    <script src="<?= e(atozee_site_url('js/admin.js')) ?>?v=3.2.0"></script>
 <?php endif; ?>
 </body>
 </html>

@@ -106,33 +106,104 @@ function initRails() {
     });
 }
 
+function parseProducts(raw) {
+    if (!raw) return [];
+    try {
+        const data = JSON.parse(raw);
+        return Array.isArray(data) ? data : [];
+    } catch {
+        return [];
+    }
+}
+
 function initPartnerSheet() {
     const sheet = document.getElementById('partner-sheet');
-    const cfg = window.ATOZEE || {};
     if (!sheet) return;
+
+    const intro = document.getElementById('sheet-intro');
+    const productsView = document.getElementById('sheet-products');
+    const exploreBtn = document.getElementById('explore-products');
+    const backBtn = document.getElementById('products-back');
+    const grid = document.getElementById('product-grid');
+    const heading = document.getElementById('products-heading');
+    const lead = document.getElementById('products-lead');
+    let products = [];
+    let partnerName = '';
+
+    const showIntro = () => {
+        if (intro) intro.hidden = false;
+        if (productsView) productsView.hidden = true;
+        sheet.classList.remove('is-exploring');
+        sheet.scrollTop = 0;
+    };
+
+    const renderProducts = () => {
+        if (!grid) return;
+        grid.innerHTML = '';
+        if (heading) heading.textContent = partnerName;
+        if (lead) {
+            lead.textContent = products.length
+                ? 'What this partner stocks and sources.'
+                : 'No products listed yet.';
+        }
+        if (!products.length) {
+            const empty = document.createElement('p');
+            empty.className = 'product-empty';
+            empty.textContent = 'Ask the AtoZee desk if you need this range added.';
+            grid.appendChild(empty);
+            return;
+        }
+        products.forEach((product) => {
+            const tile = document.createElement('article');
+            tile.className = 'product-tile';
+            const photo = document.createElement('div');
+            photo.className = 'product-photo';
+            const img = document.createElement('img');
+            img.src = product.image || '';
+            img.alt = product.name || '';
+            img.loading = 'lazy';
+            photo.appendChild(img);
+            const title = document.createElement('h3');
+            title.textContent = product.name || '';
+            const note = document.createElement('p');
+            note.textContent = product.description || '';
+            tile.appendChild(photo);
+            tile.appendChild(title);
+            tile.appendChild(note);
+            grid.appendChild(tile);
+        });
+    };
+
+    const showProducts = () => {
+        renderProducts();
+        if (intro) intro.hidden = true;
+        if (productsView) productsView.hidden = false;
+        sheet.classList.add('is-exploring');
+        sheet.scrollTop = 0;
+    };
 
     document.querySelectorAll('.partner-card').forEach((card) => {
         card.addEventListener('click', () => {
-            const name = card.dataset.name || '';
-            const code = card.dataset.code || '';
+            partnerName = card.dataset.name || '';
+            products = parseProducts(card.dataset.products);
             document.getElementById('details-image').src = card.dataset.image || '';
-            document.getElementById('details-image').alt = name;
-            document.getElementById('details-title').textContent = name;
+            document.getElementById('details-image').alt = partnerName;
+            document.getElementById('details-title').textContent = partnerName;
             document.getElementById('details-description').textContent = card.dataset.description || '';
-            document.getElementById('details-shop-number').textContent = code;
+            document.getElementById('details-shop-number').textContent = card.dataset.code || '';
             document.getElementById('details-category').textContent = card.dataset.category || '';
-            document.getElementById('details-contact-link').href =
-                `mailto:${cfg.email || ''}?subject=${encodeURIComponent(`Inquiry about ${name}`)}&body=${encodeURIComponent(`Hi AtoZee Team,\n\nI'm interested in learning more about ${name} (${code}).\n\n`)}`;
-            const digits = String(cfg.whatsapp || '').replace(/\D+/g, '');
-            document.getElementById('details-whatsapp-link').href =
-                `https://wa.me/${digits}?text=${encodeURIComponent(`Hi AtoZee Team, I'm interested in learning more about ${name} (${code})`)}`;
+            showIntro();
             if (typeof sheet.showModal === 'function') sheet.showModal();
         });
     });
 
+    if (exploreBtn) exploreBtn.addEventListener('click', showProducts);
+    if (backBtn) backBtn.addEventListener('click', showIntro);
+
     sheet.addEventListener('click', (e) => {
         if (e.target === sheet) sheet.close();
     });
+    sheet.addEventListener('close', showIntro);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
