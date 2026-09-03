@@ -216,10 +216,10 @@ h1, h2, h3 {
     position: relative;
 }
 .hero-media img {
-    width: 88%;
+    width: 80%;
     height: auto;
-    max-height: min(68vh, 620px);
-    object-fit: cover;
+    max-height: min(60vh, 520px);
+    object-fit: contain;
     object-position: center top;
     background: var(--paper-2);
     border-radius: 28px 8px 28px 8px;
