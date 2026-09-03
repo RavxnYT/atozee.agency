@@ -216,14 +216,16 @@ h1, h2, h3 {
     position: relative;
 }
 .hero-media img {
-    width: 100%;
+    width: 88%;
     height: auto;
-    max-height: min(86vh, 880px);
-    object-fit: contain;
+    max-height: min(68vh, 620px);
+    object-fit: cover;
     object-position: center top;
     background: var(--paper-2);
     border-radius: 28px 8px 28px 8px;
     box-shadow: var(--shadow);
+    display: block;
+    margin: 0 auto;
 }
 .hero-media figcaption {
     margin-top: 12px;
