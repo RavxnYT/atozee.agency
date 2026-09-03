@@ -74,7 +74,8 @@ function atozee_content(): array
     usort($content['agencies'], static fn($a, $b) => ($a['sort'] ?? 0) <=> ($b['sort'] ?? 0));
 
     if (
-        atozee_repair_agency_images($content)
+        atozee_merge_seed_site($content)
+        || atozee_repair_agency_images($content)
         || atozee_merge_seed_agencies($content)
         || atozee_merge_seed_products($content)
     ) {
@@ -89,6 +90,28 @@ function atozee_content(): array
     unset($agency);
 
     return $content;
+}
+
+function atozee_merge_seed_site(array &$content): bool
+{
+    $seed = atozee_read_json(ATOZEE_SEED_CONTENT);
+    $seedSite = $seed['site'] ?? [];
+
+    // Fields whose canonical values live in the seed and should always win.
+    $syncFields = ['tagline', 'about'];
+
+    $changed = false;
+    foreach ($syncFields as $field) {
+        if (!isset($seedSite[$field])) {
+            continue;
+        }
+        if (($content['site'][$field] ?? null) !== $seedSite[$field]) {
+            $content['site'][$field] = $seedSite[$field];
+            $changed = true;
+        }
+    }
+
+    return $changed;
 }
 
 function atozee_repair_agency_images(array &$content): bool
