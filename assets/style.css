@@ -180,9 +180,9 @@ h1, h2, h3 {
     align-items: end;
 }
 .hero h1 {
-    font-size: clamp(2.8rem, 5.4vw, 4.8rem);
-    max-width: none;
-    white-space: nowrap;
+    font-size: clamp(3.1rem, 6.2vw, 5.6rem);
+    max-width: 11ch;
+    white-space: normal;
 }
 .lede {
     margin: 22px 0 0;
@@ -605,7 +605,7 @@ body.no-scroll { overflow: hidden; }
         width: min(100%, 420px);
     }
     .hero-grid { gap: 28px; }
-    .hero h1 { max-width: none; white-space: normal; }
+    .hero h1 { max-width: none; white-space: normal; font-size: clamp(3.1rem, 6.2vw, 5.6rem); }
     .lede { max-width: none; }
     .hero-cta { width: 100%; }
     .hero-cta .btn { flex: 1 1 180px; }
