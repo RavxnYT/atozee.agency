@@ -251,6 +251,7 @@ h1, h2, h3 {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
 }
+/* ensure no JS duplication interferes */
 
 .about { padding: 110px 0; }
 .about-grid {

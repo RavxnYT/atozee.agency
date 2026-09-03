@@ -118,7 +118,27 @@ function atozee_partner_code(array $category, int $index): string
         </section>
 
         <div class="ticker" aria-hidden="true">
-            <div class="ticker-track" data-dup="true">
+            <div class="ticker-track">
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
                 <span>Save your time</span>
                 <span>Skip the hassle</span>
                 <span>Stress less</span>
