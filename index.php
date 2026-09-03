@@ -6,9 +6,9 @@ require_once __DIR__ . '/includes/bootstrap.php';
 
 $content = atozee_content();
 $site = $content['site'];
-$categories = $content['categories'];
+$categories = atozee_public_categories($content);
 $brand = (string) ($site['name'] ?? 'AtoZee');
-$tagline = (string) ($site['tagline'] ?? 'Your Global F&B Partner');
+$tagline = (string) ($site['tagline'] ?? 'One Partner, Every Purchase');
 $email = (string) ($site['email'] ?? 'zeina@atozee.agency');
 $whatsapp = (string) ($site['whatsapp'] ?? '+96176858441');
 $phoneDisplay = (string) ($site['phone_display'] ?? $whatsapp);
@@ -16,6 +16,7 @@ $owner = (string) ($site['owner'] ?? 'Zeina Slim');
 $developer = (string) ($site['developer_name'] ?? 'Joe Boulos');
 $developerWa = (string) ($site['developer_whatsapp'] ?? '+96176403131');
 $logo = atozee_site_url('assets/logo.png');
+$heroImage = atozee_site_url('assets/hero-handshake.jpg');
 $heroCtas = array_slice($categories, 0, 2);
 $year = date('Y');
 $agencyCount = count($content['agencies'] ?? []);
@@ -33,9 +34,9 @@ function atozee_partner_code(array $category, int $index): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#171512">
-    <meta name="description" content="AtoZee is a sourcing agency connecting F&amp;B brands with trusted suppliers worldwide — better quality, clearer pricing, and operations from A to Zee.">
+    <meta name="description" content="Your local F&amp;B purchasing manager. AtoZee connects coffee shops with trusted suppliers in Lebanon.">
     <title><?= e($brand) ?> — Sourcing Agency</title>
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.2.0">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.3.0">
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,12 +52,12 @@ function atozee_partner_code(array $category, int $index): string
                 <span><?= e($brand) ?></span>
             </a>
             <nav class="primary-nav" aria-label="Primary">
-                <a href="#about">Studio</a>
+                <a href="#about">Description</a>
                 <a href="#method">Method</a>
                 <?php foreach ($categories as $category): ?>
                     <a href="#<?= e($category['slug']) ?>"><?= e($category['nav_label'] ?: $category['name']) ?></a>
                 <?php endforeach; ?>
-                <a href="#voices">Voices</a>
+                <a href="#reviews">Reviews</a>
             </nav>
             <div class="header-actions">
                 <a class="btn btn-dark" href="#contact">Start a briefing</a>
@@ -71,12 +72,12 @@ function atozee_partner_code(array $category, int $index): string
                 <span>Menu</span>
                 <button class="menu-close" id="menu-close" type="button">Close</button>
             </div>
-            <a href="#about">Studio</a>
+            <a href="#about">Description</a>
             <a href="#method">Method</a>
             <?php foreach ($categories as $category): ?>
                 <a href="#<?= e($category['slug']) ?>"><?= e($category['nav_label'] ?: $category['name']) ?></a>
             <?php endforeach; ?>
-            <a href="#voices">Voices</a>
+            <a href="#reviews">Reviews</a>
             <a href="#contact">Start a briefing</a>
         </div>
     </div>
@@ -86,8 +87,8 @@ function atozee_partner_code(array $category, int $index): string
             <div class="wrap hero-grid">
                 <div class="hero-copy">
                     <p class="eyebrow">Sourcing agency · F&amp;B</p>
-                    <h1>We find what your kitchen should be serving next.</h1>
-                    <p class="lede"><?= e($tagline) ?>. <?= e($brand) ?> connects coffee shops, restaurants, and retailers with verified suppliers across Europe, Asia, and the Middle East.</p>
+                    <h1><?= e($tagline) ?></h1>
+                    <p class="lede">Your Local F&amp;B purchasing manager, <?= e($brand) ?> connects coffee shops with trusted suppliers in Lebanon</p>
                     <div class="hero-cta">
                         <a class="btn btn-dark" href="#contact">Talk to the desk</a>
                         <?php if ($heroCtas): ?>
@@ -101,17 +102,17 @@ function atozee_partner_code(array $category, int $index): string
                         </div>
                         <div>
                             <dt>Coverage</dt>
-                            <dd>EU · Asia · MENA</dd>
+                            <dd>All over Lebanon</dd>
                         </div>
                         <div>
                             <dt>Desk</dt>
-                            <dd>Lebanon, worldwide</dd>
+                            <dd>Beirut, Lebanon</dd>
                         </div>
                     </dl>
                 </div>
                 <figure class="hero-media">
-                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="A composed dining room, the kind of hospitality AtoZee sources for">
-                    <figcaption>Hospitality sourcing, handled as a studio practice.</figcaption>
+                    <img src="<?= e($heroImage) ?>" alt="Two partners shaking hands across an AtoZee-branded desk">
+                    <figcaption>Partnership and procurement, handled from one desk.</figcaption>
                 </figure>
             </div>
         </section>
@@ -129,11 +130,10 @@ function atozee_partner_code(array $category, int $index): string
 
         <section class="about" id="about">
             <div class="wrap about-grid">
-                <p class="eyebrow">The studio</p>
+                <p class="eyebrow">Description</p>
                 <div>
-                    <h2>A quieter way to buy well.</h2>
+                    <h2>Procurement, Handled.</h2>
                     <p class="about-text"><?= e($site['about'] ?? '') ?></p>
-                    <p class="about-text">You send the brief. We shortlist, negotiate, and see the order through — so your team stays on the floor, not in inboxes.</p>
                 </div>
             </div>
         </section>
@@ -142,35 +142,35 @@ function atozee_partner_code(array $category, int $index): string
             <div class="wrap">
                 <div class="section-intro">
                     <p class="eyebrow">Method</p>
-                    <h2>How a briefing becomes a delivery.</h2>
+                    <h2>How your purchasing gets done.</h2>
                 </div>
                 <ol class="method-list">
                     <li>
                         <span>01</span>
                         <div>
-                            <h3>Network</h3>
-                            <p>Direct access to verified manufacturers and suppliers matched to the way you actually operate.</p>
+                            <h3>Request</h3>
+                            <p>Tell us what your business needs — products, quantities, specifications, and preferred delivery date.</p>
                         </div>
                     </li>
                     <li>
                         <span>02</span>
                         <div>
-                            <h3>Pace</h3>
-                            <p>A tight sourcing workflow: shortlist, sample, price, and confirm without weeks of vendor theatre.</p>
+                            <h3>Source</h3>
+                            <p>We identify suitable suppliers, compare options, availability, pricing, and terms on your behalf.</p>
                         </div>
                     </li>
                     <li>
                         <span>03</span>
                         <div>
-                            <h3>Standard</h3>
-                            <p>We only introduce partners who clear AtoZee’s bar for reliability, consistency, and aftercare.</p>
+                            <h3>Negotiate</h3>
+                            <p>Our purchasing team handles quotations and negotiations to secure the right balance of price, quality, and terms.</p>
                         </div>
                     </li>
                     <li>
                         <span>04</span>
                         <div>
-                            <h3>Through-line</h3>
-                            <p>Discovery, negotiation, shipping, and local delivery sit with us — one desk, one conversation.</p>
+                            <h3>Deliver</h3>
+                            <p>We coordinate the order from supplier confirmation through delivery — giving you one purchasing partner and one point of contact.</p>
                         </div>
                     </li>
                 </ol>
@@ -251,10 +251,10 @@ function atozee_partner_code(array $category, int $index): string
             </section>
         <?php endforeach; ?>
 
-        <section class="voices" id="voices">
+        <section class="voices" id="reviews">
             <div class="wrap">
                 <div class="section-intro">
-                    <p class="eyebrow">Voices</p>
+                    <p class="eyebrow">Reviews</p>
                     <h2>Operators, not slogans.</h2>
                 </div>
                 <div class="voice-grid">
@@ -314,14 +314,14 @@ function atozee_partner_code(array $category, int $index): string
             </div>
             <div>
                 <p class="footer-label">Visit</p>
-                <a href="#about">Studio</a>
+                <a href="#about">Description</a>
                 <a href="#method">Method</a>
                 <a href="#contact">Briefing</a>
             </div>
             <div>
                 <p class="footer-label">Desks</p>
                 <?php foreach ($categories as $category): ?>
-                    <a href="#<?= e($category['slug']) ?>"><?= e($category['name']) ?></a>
+                    <a href="#<?= e($category['slug']) ?>"><?= e($category['nav_label'] ?: $category['name']) ?></a>
                 <?php endforeach; ?>
             </div>
             <div>

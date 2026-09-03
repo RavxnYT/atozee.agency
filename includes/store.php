@@ -220,6 +220,32 @@ function atozee_agencies_in(array $content, string $categoryId): array
     ));
 }
 
+function atozee_public_categories(array $content): array
+{
+    $out = [];
+    foreach ($content['categories'] ?? [] as $category) {
+        if (($category['public'] ?? true) === false) {
+            continue;
+        }
+
+        $haystack = strtolower(implode(' ', [
+            (string) ($category['slug'] ?? ''),
+            (string) ($category['nav_label'] ?? ''),
+            (string) ($category['name'] ?? ''),
+        ]));
+        if (str_contains($haystack, 'hotel')) {
+            continue;
+        }
+        if (str_contains($haystack, 'coffee')) {
+            $category['nav_label'] = 'Coffee shop';
+        }
+
+        $out[] = $category;
+    }
+
+    return $out;
+}
+
 function atozee_public_products_json(array $agency): string
 {
     $out = [];

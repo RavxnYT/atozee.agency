@@ -1,8 +1,8 @@
 {
   "site": {
     "name": "AtoZee",
-    "tagline": "Your Global F&B Partner",
-    "about": "At AtoZee, we make sourcing simple. We connect F&B brands with trusted suppliers worldwide. Our goal is to help coffee shops, restaurants and retailers find better quality, better prices, and smoother operations from A to Zee.",
+    "tagline": "One Partner, Every Purchase",
+    "about": "sourcing trusted suppliers, comparing offers, negotiating prices, coordinating orders, and simplifying your purchasing process.",
     "email": "zeina@atozee.agency",
     "whatsapp": "+96176858441",
     "phone_display": "+961 76 85 84 41",
@@ -14,18 +14,19 @@
     {
       "id": "cat_coffee",
       "name": "Coffee Shops",
-      "nav_label": "Coffee",
+      "nav_label": "Coffee shop",
       "cta_label": "Explore Coffee",
       "slug": "coffee-shops",
       "sort": 1
     },
     {
       "id": "cat_restaurants",
-      "name": "Restaurants",
-      "nav_label": "Restaurants",
-      "cta_label": "Discover Restaurants",
-      "slug": "restaurants",
-      "sort": 2
+      "name": "Hotels",
+      "nav_label": "Hotels",
+      "cta_label": "Discover Hotels",
+      "slug": "hotels",
+      "sort": 2,
+      "public": false
     }
   ],
   "agencies": [
