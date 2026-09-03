@@ -87,7 +87,7 @@ function atozee_partner_code(array $category, int $index): string
             <div class="wrap hero-grid">
                 <div class="hero-copy">
                     <p class="eyebrow">Sourcing agency · F&amp;B</p>
-                    <h1><?= e($tagline) ?></h1>
+                    <h1>One Partner,<br>Every Purchase</h1>
                     <p class="lede">sourcing trusted suppliers, comparing offers, negotiating prices, coordinating orders, and simplifying your purchasing process.</p>
                     <div class="hero-cta">
                         <a class="btn btn-dark" href="#contact">Talk to the desk</a>
