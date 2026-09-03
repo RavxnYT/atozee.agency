@@ -34,7 +34,7 @@ function atozee_partner_code(array $category, int $index): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#171512">
-    <meta name="description" content="Your local F&amp;B purchasing manager. AtoZee connects coffee shops with trusted suppliers in Lebanon.">
+    <meta name="description" content="sourcing trusted suppliers, comparing offers, negotiating prices, coordinating orders, and simplifying your purchasing process.">
     <title><?= e($brand) ?> — Sourcing Agency</title>
     <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.3.0">
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
@@ -88,7 +88,7 @@ function atozee_partner_code(array $category, int $index): string
                 <div class="hero-copy">
                     <p class="eyebrow">Sourcing agency · F&amp;B</p>
                     <h1><?= e($tagline) ?></h1>
-                    <p class="lede">Your Local F&amp;B purchasing manager, <?= e($brand) ?> connects coffee shops with trusted suppliers in Lebanon</p>
+                    <p class="lede">sourcing trusted suppliers, comparing offers, negotiating prices, coordinating orders, and simplifying your purchasing process.</p>
                     <div class="hero-cta">
                         <a class="btn btn-dark" href="#contact">Talk to the desk</a>
                         <?php if ($heroCtas): ?>
@@ -119,12 +119,10 @@ function atozee_partner_code(array $category, int $index): string
 
         <div class="ticker" aria-hidden="true">
             <div class="ticker-track" data-dup="true">
-                <span>Artisanal roasters</span>
-                <span>Cloud kitchens</span>
-                <span>Gourmet suppliers</span>
-                <span>Hospitality groups</span>
-                <span>Cold chain logistics</span>
-                <span>Specialty retail</span>
+                <span>Save your time</span>
+                <span>Skip the hassle</span>
+                <span>Stress less</span>
+                <span>Easy</span>
             </div>
         </div>
 
