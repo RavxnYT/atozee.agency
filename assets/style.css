@@ -359,7 +359,7 @@ h1, h2, h3 {
     gap: 22px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 8px 0 40px;
+    padding: 8px 0 40px max(20px, env(safe-area-inset-left), calc((100% - var(--wrap)) / 2));
     scrollbar-width: none;
 }
 .rail::-webkit-scrollbar { display: none; }
