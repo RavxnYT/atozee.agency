@@ -348,18 +348,23 @@ h1, h2, h3 {
 }
 .rail-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
-.rail-wrap { overflow: hidden; }
+.rail-wrap {
+    overflow: hidden;
+    /* Gutter is on the wrap so scroll-snap cannot pull the first card flush left. */
+    padding-left: max(48px, calc((100% - var(--wrap)) / 2));
+}
 .rail-wrap.is-grid {
     overflow: visible;
     width: min(var(--wrap), calc(100% - 40px));
     margin: 0 auto;
+    padding-left: 0;
 }
 .rail {
     display: flex;
     gap: 22px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 8px 0 40px max(20px, env(safe-area-inset-left), calc((100% - var(--wrap)) / 2));
+    padding: 8px 0 40px;
     scrollbar-width: none;
 }
 .rail::-webkit-scrollbar { display: none; }
@@ -644,9 +649,10 @@ body.no-scroll { overflow: hidden; }
         width: 100%;
     }
     .rail-wrap:not(.is-grid) {
-        width: min(var(--wrap), calc(100% - 24px));
+        width: min(var(--wrap), calc(100% - 40px));
         margin-inline: auto;
         overflow: hidden;
+        padding-left: 0;
     }
     .rail-wrap:not(.is-grid) .rail {
         padding-inline: 0;
