@@ -350,8 +350,7 @@ h1, h2, h3 {
 
 .rail-wrap {
     overflow: hidden;
-    /* Gutter is on the wrap so scroll-snap cannot pull the first card flush left. */
-    padding-left: max(48px, calc((100% - var(--wrap)) / 2));
+    padding-left: 20px;
 }
 .rail-wrap.is-grid {
     overflow: visible;
