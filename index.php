@@ -372,7 +372,7 @@ function atozee_partner_code(array $category, int $index): string
         </div>
         <div class="sheet-view" id="sheet-products" hidden>
             <div class="sheet-body sheet-products-body">
-                <button type="button" class="sheet-back" id="products-back">← Back</button>
+                <button type="button" class="sheet-back" id="products-back" hidden>← Back</button>
                 <p class="eyebrow">From the desk</p>
                 <h2 id="products-heading"></h2>
                 <p class="sheet-products-lead" id="products-lead"></p>
@@ -386,6 +386,6 @@ function atozee_partner_code(array $category, int $index): string
             whatsapp: <?= json_encode($whatsapp) ?>
         };
     </script>
-    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.2.1"></script>
+    <script src="<?= e(atozee_site_url('js/main.js')) ?>?v=3.2.2"></script>
 </body>
 </html>
