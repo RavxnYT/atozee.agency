@@ -36,7 +36,7 @@ function atozee_partner_code(array $category, int $index): string
     <meta name="theme-color" content="#171512">
     <meta name="description" content="sourcing trusted suppliers, comparing offers, negotiating prices, coordinating orders, and simplifying your purchasing process.">
     <title><?= e($brand) ?> — Sourcing Agency</title>
-    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.3.0">
+    <link rel="stylesheet" href="<?= e(atozee_site_url('assets/style.css')) ?>?v=3.3.1">
     <link rel="shortcut icon" href="<?= e($logo) ?>" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,10 +53,10 @@ function atozee_partner_code(array $category, int $index): string
             </a>
             <nav class="primary-nav" aria-label="Primary">
                 <a href="#about">Description</a>
-                <a href="#method">Method</a>
                 <?php foreach ($categories as $category): ?>
                     <a href="#<?= e($category['slug']) ?>"><?= e($category['nav_label'] ?: $category['name']) ?></a>
                 <?php endforeach; ?>
+                <a href="#method">Method</a>
                 <a href="#reviews">Reviews</a>
             </nav>
             <div class="header-actions">
@@ -73,10 +73,10 @@ function atozee_partner_code(array $category, int $index): string
                 <button class="menu-close" id="menu-close" type="button">Close</button>
             </div>
             <a href="#about">Description</a>
-            <a href="#method">Method</a>
             <?php foreach ($categories as $category): ?>
                 <a href="#<?= e($category['slug']) ?>"><?= e($category['nav_label'] ?: $category['name']) ?></a>
             <?php endforeach; ?>
+            <a href="#method">Method</a>
             <a href="#reviews">Reviews</a>
             <a href="#contact">Start a briefing</a>
         </div>
@@ -156,6 +156,59 @@ function atozee_partner_code(array $category, int $index): string
             </div>
         </section>
 
+        <?php foreach ($categories as $catIndex => $category):
+            $agencies = atozee_agencies_in($content, (string) $category['id']);
+            $slug = (string) $category['slug'];
+            $pad = str_pad((string) ($catIndex + 1), 2, '0', STR_PAD_LEFT);
+        ?>
+            <section class="catalog" id="<?= e($slug) ?>">
+                <div class="wrap">
+                    <header class="catalog-head">
+                        <div>
+                            <p class="eyebrow"><?= e($pad) ?> / <?= e($category['name']) ?></p>
+                            <h2><?= e($category['name']) ?></h2>
+                        </div>
+                        <div class="catalog-tools">
+                            <?php if (count($agencies) > 3): ?>
+                                <button class="btn btn-line view-all" type="button" data-target="<?= e($slug) ?>">View the full desk</button>
+                            <?php endif; ?>
+                            <div class="rail-nav">
+                                <button type="button" class="rail-btn" data-carousel="<?= e($slug) ?>-rail" data-dir="-1" aria-label="Previous">←</button>
+                                <button type="button" class="rail-btn" data-carousel="<?= e($slug) ?>-rail" data-dir="1" aria-label="Next">→</button>
+                            </div>
+                        </div>
+                    </header>
+                </div>
+                <div class="rail-wrap">
+                    <div class="rail" id="<?= e($slug) ?>-rail">
+                        <?php if (!$agencies): ?>
+                            <p class="empty">This desk is being set. Check back shortly.</p>
+                        <?php endif; ?>
+                        <?php foreach ($agencies as $index => $agency):
+                            $code = atozee_partner_code($category, $index);
+                        ?>
+                            <article
+                                class="partner-card"
+                                data-name="<?= e($agency['name']) ?>"
+                                data-description="<?= e($agency['description'] ?? '') ?>"
+                                data-image="<?= e(atozee_image_src((string) $agency['image'])) ?>"
+                                data-category="<?= e($category['name']) ?>"
+                                data-code="<?= e($code) ?>"
+                                data-products="<?= e(atozee_public_products_json($agency)) ?>"
+                            >
+                                <div class="partner-photo">
+                                    <img src="<?= e(atozee_image_src((string) $agency['image'])) ?>" alt="<?= e($agency['name']) ?>" loading="lazy">
+                                </div>
+                                <p class="partner-code"><?= e($code) ?></p>
+                                <h3><?= e($agency['name']) ?></h3>
+                                <p><?= e($agency['description'] ?? '') ?></p>
+                            </article>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </section>
+        <?php endforeach; ?>
+
         <section class="method" id="method">
             <div class="wrap">
                 <div class="section-intro">
@@ -215,59 +268,6 @@ function atozee_partner_code(array $category, int $index): string
                 </div>
             </div>
         </section>
-
-        <?php foreach ($categories as $catIndex => $category):
-            $agencies = atozee_agencies_in($content, (string) $category['id']);
-            $slug = (string) $category['slug'];
-            $pad = str_pad((string) ($catIndex + 1), 2, '0', STR_PAD_LEFT);
-        ?>
-            <section class="catalog" id="<?= e($slug) ?>">
-                <div class="wrap">
-                    <header class="catalog-head">
-                        <div>
-                            <p class="eyebrow"><?= e($pad) ?> / <?= e($category['name']) ?></p>
-                            <h2><?= e($category['name']) ?></h2>
-                        </div>
-                        <div class="catalog-tools">
-                            <?php if (count($agencies) > 3): ?>
-                                <button class="btn btn-line view-all" type="button" data-target="<?= e($slug) ?>">View the full desk</button>
-                            <?php endif; ?>
-                            <div class="rail-nav">
-                                <button type="button" class="rail-btn" data-carousel="<?= e($slug) ?>-rail" data-dir="-1" aria-label="Previous">←</button>
-                                <button type="button" class="rail-btn" data-carousel="<?= e($slug) ?>-rail" data-dir="1" aria-label="Next">→</button>
-                            </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="rail-wrap">
-                    <div class="rail" id="<?= e($slug) ?>-rail">
-                        <?php if (!$agencies): ?>
-                            <p class="empty">This desk is being set. Check back shortly.</p>
-                        <?php endif; ?>
-                        <?php foreach ($agencies as $index => $agency):
-                            $code = atozee_partner_code($category, $index);
-                        ?>
-                            <article
-                                class="partner-card"
-                                data-name="<?= e($agency['name']) ?>"
-                                data-description="<?= e($agency['description'] ?? '') ?>"
-                                data-image="<?= e(atozee_image_src((string) $agency['image'])) ?>"
-                                data-category="<?= e($category['name']) ?>"
-                                data-code="<?= e($code) ?>"
-                                data-products="<?= e(atozee_public_products_json($agency)) ?>"
-                            >
-                                <div class="partner-photo">
-                                    <img src="<?= e(atozee_image_src((string) $agency['image'])) ?>" alt="<?= e($agency['name']) ?>" loading="lazy">
-                                </div>
-                                <p class="partner-code"><?= e($code) ?></p>
-                                <h3><?= e($agency['name']) ?></h3>
-                                <p><?= e($agency['description'] ?? '') ?></p>
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            </section>
-        <?php endforeach; ?>
 
         <section class="voices" id="reviews">
             <div class="wrap">
