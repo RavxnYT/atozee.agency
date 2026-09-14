@@ -255,7 +255,7 @@ h1, h2, h3 {
 }
 /* ensure no JS duplication interferes */
 
-.about { padding: 110px 0; }
+.about { padding: 110px 0 0; }
 .about-grid {
     display: grid;
     grid-template-columns: 180px 1fr;
@@ -275,7 +275,7 @@ h1, h2, h3 {
     color: var(--ink-soft);
 }
 
-.method { padding: 0 0 110px; }
+.method { padding: 70px 0 110px; }
 .section-intro { margin-bottom: 48px; }
 .method-list {
     list-style: none;
@@ -617,9 +617,9 @@ body.no-scroll { overflow: hidden; }
         object-fit: contain;
         border-radius: 20px;
     }
-    .about,
+    .about { padding: 72px 0 0; }
     .voices { padding: 72px 0; }
-    .method { padding: 0 0 72px; }
+    .method { padding: 56px 0 72px; }
     .catalog { padding: 72px 0 24px; }
     .contact { padding: 72px 0 80px; }
     .about h2,
